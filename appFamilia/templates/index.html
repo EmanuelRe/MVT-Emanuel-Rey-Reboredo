@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Familia</title>
+</head>
+<body>
+    <h1>Mi familia</h1>
+
+        <table>
+
+            <thead>
+                <th>Parentezco</th>
+                <th>Nombre</th>
+                <th>Edad</th>
+                <th>Nacimiento</th>
+            </thead>
+
+            {% for familia in familia %}
+
+            <tr>
+                <td>{{familia.parentezco}}</td>
+                <td>{{familia.nombre}}</td>
+                <td>{{familia.edad}}</td>
+                <td>{{familia.nacimiento}}</td>
+            </tr>
+
+            {% endfor %}
+        
+        </table>
+</body>
+</html>

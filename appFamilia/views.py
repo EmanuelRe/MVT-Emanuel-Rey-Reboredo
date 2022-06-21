@@ -6,7 +6,7 @@ from appFamilia.models import Familia
 
 # Create your views here.
 
-def familia(self):
+def familia(request):
 
     familia1 = Familia(nombre = "Juaquín Perez", parentezco = "hermano", edad = "24", nacimiento = "1998-10-24")
     familia1.save()
@@ -17,6 +17,7 @@ def familia(self):
     familia3 = Familia(nombre = "Hernesto Perez", parentezco = "padre", edad = "57", nacimiento = "1965-7-14")
     familia3.save()
 
-    documento = f"Mi primer familiar se llama {familia1.nombre}, es mi {familia1.parentezco}, tiene {familia1.edad} y su fecha de nacimiento es {familia1.nacimiento}, Mi segundo familiar se llama {familia2.nombre}, es mi {familia2.parentezco}, tiene {familia2.edad} y su fecha de nacimiento es {familia2.nacimiento} y mi tercer familiar se llama {familia3.nombre}, es mi {familia3.parentezco}, tiene {familia3.edad} y su fecha de nacimiento es {familia3.nacimiento} "
+    familia = Familia.objects.all()
 
-    return HttpResponse(documento)
+    ctx = {"familia": familia}
+    return render(request, "index.html", ctx)
